@@ -18,6 +18,13 @@ export interface LabTest {
   evidenceRequired: string[];
 }
 
+export interface ForensicAnchor {
+  testId: string;
+  evidenceId: string;
+  supportsSuspectId: string;
+  strength: 'strong' | 'moderate' | 'weak';
+}
+
 export interface Scenario {
   id: string;
   killerId: string;
@@ -25,6 +32,7 @@ export interface Scenario {
   forensicResults: Record<string, string>;
   plantedEvidence: string[];
   interviewVariations: Record<string, string>;
+  forensicAnchor?: ForensicAnchor;
 }
 
 export interface PendingTest {
@@ -53,7 +61,8 @@ export interface SubmitResult {
   details: {
     correctSuspect: boolean;
     motiveMatch: boolean;
-    forensicAnchors: number;
+    anchorDiscovered: boolean;
+    anchorSupportsAccused: boolean;
     plantedEvidenceUsed: boolean;
   };
 }

@@ -312,8 +312,8 @@ export default function Home() {
             <div className={`rounded p-2 ${submitResult.details.motiveMatch ? 'bg-green-900 text-green-300' : 'bg-red-900 text-red-300'}`}>
               {submitResult.details.motiveMatch ? '✓' : '✗'} Motive Match
             </div>
-            <div className={`rounded p-2 ${submitResult.details.forensicAnchors >= 2 ? 'bg-green-900 text-green-300' : 'bg-red-900 text-red-300'}`}>
-              {submitResult.details.forensicAnchors >= 2 ? '✓' : '✗'} Forensic Evidence ({submitResult.details.forensicAnchors}/2)
+            <div className={`rounded p-2 ${submitResult.details.anchorSupportsAccused ? 'bg-green-900 text-green-300' : submitResult.details.anchorDiscovered ? 'bg-red-900 text-red-300' : 'bg-gray-800 text-gray-400'}`}>
+              {submitResult.details.anchorSupportsAccused ? '✓' : submitResult.details.anchorDiscovered ? '✗' : '—'} Forensic Anchor
             </div>
             <div className={`rounded p-2 ${submitResult.details.plantedEvidenceUsed ? 'bg-red-900 text-red-300' : 'bg-green-900 text-green-300'}`}>
               {submitResult.details.plantedEvidenceUsed ? '✗' : '✓'} No Planted Evidence
