@@ -63,7 +63,8 @@ export function requestLabTest(
 export function advanceDay(state: GameState): GameState {
   if (state.currentDay >= MAX_DAYS || state.submitted) return state;
 
-  const scenario = SCENARIOS.find((s) => s.id === state.selectedScenarioId)!;
+  const scenario = SCENARIOS.find((s) => s.id === state.selectedScenarioId);
+  if (!scenario) return state;
   const nextDay = state.currentDay + 1;
 
   const nowReady = state.pendingTests.filter((p) => p.readyDay <= nextDay);
@@ -89,7 +90,22 @@ export function submitCase(
   providedMotive: string,
   referencedEvidence: string[]
 ): { newState: GameState; result: SubmitResult } {
-  const scenario = SCENARIOS.find((s) => s.id === state.selectedScenarioId)!;
+  const scenario = SCENARIOS.find((s) => s.id === state.selectedScenarioId);
+  if (!scenario) {
+    return {
+      newState: { ...state, submitted: true },
+      result: {
+        score: 0,
+        verdict: 'Case Collapse',
+        details: {
+          correctSuspect: false,
+          motiveMatch: false,
+          forensicAnchors: 0,
+          plantedEvidenceUsed: false,
+        },
+      },
+    };
+  };
 
   let score = 0;
   const correctSuspect = accusedSuspectId === scenario.killerId;
