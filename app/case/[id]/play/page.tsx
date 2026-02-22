@@ -363,25 +363,28 @@ export default function PlayPage() {
                 <h3 className="text-yellow-400 text-sm font-semibold uppercase tracking-wider">
                   Processing ({gameState.pendingTests.length})
                 </h3>
-                {gameState.pendingTests.map((p) => {
-                  const test = LAB_TESTS.find((t) => t.id === p.testId);
-                  const ev = EVIDENCE.find((e) => e.id === p.evidenceId);
-                  const remaining = Math.max(0, p.readyAt - Date.now());
-                  return (
-                    <div
-                      key={`${p.testId}-${p.evidenceId}`}
-                      className="border border-gray-700 rounded p-2 text-sm flex justify-between items-center"
-                    >
-                      <div>
-                        <span className="text-white">{test?.name}</span>
-                        <span className="text-gray-400"> — {ev?.title}</span>
+                {(() => {
+                  const now = Date.now();
+                  return gameState.pendingTests.map((p) => {
+                    const test = LAB_TESTS.find((t) => t.id === p.testId);
+                    const ev = EVIDENCE.find((e) => e.id === p.evidenceId);
+                    const remaining = Math.max(0, p.readyAt - now);
+                    return (
+                      <div
+                        key={`${p.testId}-${p.evidenceId}`}
+                        className="border border-gray-700 rounded p-2 text-sm flex justify-between items-center"
+                      >
+                        <div>
+                          <span className="text-white">{test?.name}</span>
+                          <span className="text-gray-400"> — {ev?.title}</span>
+                        </div>
+                        <span className="text-yellow-400 text-xs font-mono tabular-nums">
+                          {remaining > 0 ? formatTime(remaining) : 'READY'}
+                        </span>
                       </div>
-                      <span className="text-yellow-400 text-xs font-mono tabular-nums">
-                        {remaining > 0 ? formatTime(remaining) : 'READY'}
-                      </span>
-                    </div>
-                  );
-                })}
+                    );
+                  });
+                })()}
               </div>
             )}
           </section>

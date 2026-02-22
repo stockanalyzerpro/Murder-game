@@ -138,8 +138,11 @@ export function submitCase(
   if (anchorSupportsAccused) score += 25;
   if (anchorDiscovered && !anchorSupportsAccused) score -= 25;
   if (plantedEvidenceUsed) score -= 20;
-  if (timeExpired) score -= 15;
-  if (!timeExpired) score += 10;
+  if (timeExpired) {
+    score -= 15;
+  } else {
+    score += 10;
+  }
 
   let verdict: string;
   if (score >= 80) {
