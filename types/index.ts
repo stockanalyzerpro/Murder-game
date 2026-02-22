@@ -14,7 +14,7 @@ export interface Evidence {
 export interface LabTest {
   id: string;
   name: string;
-  duration: number;
+  delayMinutes: number;
   evidenceRequired: string[];
 }
 
@@ -27,6 +27,14 @@ export interface ForensicAnchor {
 
 export interface Scenario {
   id: string;
+  title: string;
+  tagline: string;
+  difficulty: 1 | 2 | 3 | 4 | 5;
+  defaultTimerMinutes: number;
+  playerCount: string;
+  briefing: string;
+  suspectIds: string[];
+  evidenceIds: string[];
   killerId: string;
   motive: string;
   forensicResults: Record<string, string>;
@@ -38,7 +46,8 @@ export interface Scenario {
 export interface PendingTest {
   testId: string;
   evidenceId: string;
-  readyDay: number;
+  submittedAt: number;
+  readyAt: number;
 }
 
 export interface CompletedTest {
@@ -48,8 +57,9 @@ export interface CompletedTest {
 }
 
 export interface GameState {
-  currentDay: number;
   selectedScenarioId: string;
+  timerMinutes: number;
+  startedAt: number;
   pendingTests: PendingTest[];
   completedTests: CompletedTest[];
   submitted: boolean;
@@ -64,5 +74,6 @@ export interface SubmitResult {
     anchorDiscovered: boolean;
     anchorSupportsAccused: boolean;
     plantedEvidenceUsed: boolean;
+    timeExpired: boolean;
   };
 }

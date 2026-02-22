@@ -65,31 +65,31 @@ export const LAB_TESTS: LabTest[] = [
   {
     id: 'dna_test',
     name: 'DNA Analysis',
-    duration: 3,
+    delayMinutes: 8,
     evidenceRequired: ['weapon'],
   },
   {
     id: 'fiber_analysis',
     name: 'Fiber Spectrometry',
-    duration: 2,
+    delayMinutes: 5,
     evidenceRequired: ['fiber'],
   },
   {
     id: 'gps_triangulation',
     name: 'GPS Triangulation',
-    duration: 1,
+    delayMinutes: 3,
     evidenceRequired: ['phone_records'],
   },
   {
     id: 'financial_audit',
     name: 'Forensic Financial Audit',
-    duration: 4,
+    delayMinutes: 10,
     evidenceRequired: ['financial_docs'],
   },
   {
     id: 'footage_enhancement',
     name: 'Digital Footage Enhancement',
-    duration: 2,
+    delayMinutes: 6,
     evidenceRequired: ['security_footage'],
   },
 ];
@@ -97,6 +97,14 @@ export const LAB_TESTS: LabTest[] = [
 export const SCENARIOS: Scenario[] = [
   {
     id: 'scenario_1',
+    title: 'Small Town Betrayal',
+    tagline: 'A prominent businessman is found dead in his study — and everyone in the family had a reason to want him gone.',
+    difficulty: 2,
+    defaultTimerMinutes: 90,
+    playerCount: '1-4',
+    briefing: `At 11:52 PM on a quiet Tuesday night, paramedics responded to a 911 call at the Voss family estate on Birchwood Lane. The caller — housekeeper Maria Delgado — reported finding the body of Richard Voss, 54, in his private study on the ground floor. Voss was pronounced dead at the scene.\n\nThe victim was discovered slumped beside his desk with severe blunt force trauma to the head. A heavy crystal decanter lay nearby, shattered and stained with blood. There were no signs of forced entry, and the home security system was disarmed from inside at 11:31 PM.\n\nInitial canvass revealed that several family members and associates had been in contact with the victim that evening. Financial records subpoenaed from Voss & Holt Industries suggest a web of debts, disputes, and hidden motives. Your task force has been assigned the case — review the evidence, run forensic tests, interview the suspects, and file charges before the trail goes cold.`,
+    suspectIds: ['spouse', 'brother', 'daughter', 'business_partner', 'employee'],
+    evidenceIds: ['weapon', 'fiber', 'phone_records', 'financial_docs', 'security_footage'],
     killerId: 'spouse',
     motive: 'Financial desperation',
     forensicResults: {
@@ -123,6 +131,14 @@ export const SCENARIOS: Scenario[] = [
   },
   {
     id: 'scenario_2',
+    title: 'Blood Inheritance',
+    tagline: 'When the will changes, old grudges turn deadly — and the prodigal brother returns just in time.',
+    difficulty: 3,
+    defaultTimerMinutes: 90,
+    playerCount: '1-4',
+    briefing: `Richard Voss was found dead at his estate under circumstances that point to a deeply personal killing. The victim had recently updated his will — a change that disinherited his younger brother David entirely, redirecting a multi-million-dollar estate to his daughter Claire.\n\nDavid Voss, estranged from the family for over two years following a bitter legal dispute over their late father's trust, had returned to town one month prior. Witnesses at local establishments reported seeing David drinking heavily and making veiled threats about "getting what's owed."\n\nThe crime scene showed signs of a confrontation in the study. A GPS trace on the victim's phone reveals an unexpected late-night drive to a rural property — one registered under David's name. Fiber evidence collected from the victim's jacket may link to an out-of-town source. Dig deep, detective — this family's secrets run darker than they appear.`,
+    suspectIds: ['spouse', 'brother', 'daughter', 'business_partner', 'employee'],
+    evidenceIds: ['weapon', 'fiber', 'phone_records', 'financial_docs', 'security_footage'],
     killerId: 'brother',
     motive: 'Inheritance dispute',
     forensicResults: {
@@ -149,6 +165,14 @@ export const SCENARIOS: Scenario[] = [
   },
   {
     id: 'scenario_3',
+    title: 'The Silent Ledger',
+    tagline: 'Embezzlement, shell companies, and a partner with everything to lose — follow the money before time runs out.',
+    difficulty: 4,
+    defaultTimerMinutes: 75,
+    playerCount: '1-4',
+    briefing: `The murder of Richard Voss has all the hallmarks of a carefully planned execution. The victim — co-founder of Voss & Holt Industries — was found in the company's downtown office after hours, not at his home estate as initially reported by media.\n\nA forensic accountant engaged by the DA's office has flagged nearly $870,000 in unauthorized wire transfers routed through a series of shell accounts. The money trail leads to a holding entity with connections to Leonard Holt, the victim's business partner of 18 years.\n\nGPS data from Holt's personal phone places him near the scene at 11:05 PM — just 22 minutes before the emergency call. Enhanced security footage reveals a vehicle matching Holt's registered BMW in the building's parking structure. But Holt's attorney insists his client was miles away, and the phone was "left in his car by his driver." Someone is lying — and the clock is ticking.`,
+    suspectIds: ['spouse', 'brother', 'daughter', 'business_partner', 'employee'],
+    evidenceIds: ['weapon', 'fiber', 'phone_records', 'financial_docs', 'security_footage'],
     killerId: 'business_partner',
     motive: 'Embezzlement cover-up',
     forensicResults: {

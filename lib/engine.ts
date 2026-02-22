@@ -1,13 +1,11 @@
 import { SCENARIOS, LAB_TESTS } from './data';
 import type { GameState, PendingTest, CompletedTest, SubmitResult } from '@/types';
 
-export const MAX_DAYS = 10;
-
-export function initGame(): GameState {
-  const randomIndex = Math.floor(Math.random() * SCENARIOS.length);
+export function initGame(scenarioId: string, timerMinutes: number): GameState {
   return {
-    currentDay: 1,
-    selectedScenarioId: SCENARIOS[randomIndex].id,
+    selectedScenarioId: scenarioId,
+    timerMinutes,
+    startedAt: Date.now(),
     pendingTests: [],
     completedTests: [],
     submitted: false,
@@ -41,14 +39,12 @@ export function requestLabTest(
     return { success: false, error: 'This test has already been requested.' };
   }
 
-  if (state.currentDay >= MAX_DAYS) {
-    return { success: false, error: 'No time remaining to submit new tests.' };
-  }
-
+  const now = Date.now();
   const entry: PendingTest = {
     testId,
     evidenceId,
-    readyDay: state.currentDay + test.duration,
+    submittedAt: now,
+    readyAt: now + test.delayMinutes * 60 * 1000,
   };
 
   return {
@@ -60,15 +56,15 @@ export function requestLabTest(
   };
 }
 
-export function advanceDay(state: GameState): GameState {
-  if (state.currentDay >= MAX_DAYS || state.submitted) return state;
-
+export function resolveReadyTests(state: GameState): GameState {
   const scenario = SCENARIOS.find((s) => s.id === state.selectedScenarioId);
   if (!scenario) return state;
-  const nextDay = state.currentDay + 1;
 
-  const nowReady = state.pendingTests.filter((p) => p.readyDay <= nextDay);
-  const stillPending = state.pendingTests.filter((p) => p.readyDay > nextDay);
+  const now = Date.now();
+  const nowReady = state.pendingTests.filter((p) => p.readyAt <= now);
+  const stillPending = state.pendingTests.filter((p) => p.readyAt > now);
+
+  if (nowReady.length === 0) return state;
 
   const newCompleted: CompletedTest[] = nowReady.map((p) => ({
     testId: p.testId,
@@ -78,7 +74,6 @@ export function advanceDay(state: GameState): GameState {
 
   return {
     ...state,
-    currentDay: nextDay,
     pendingTests: stillPending,
     completedTests: [...state.completedTests, ...newCompleted],
   };
@@ -103,10 +98,11 @@ export function submitCase(
           anchorDiscovered: false,
           anchorSupportsAccused: false,
           plantedEvidenceUsed: false,
+          timeExpired: false,
         },
       },
     };
-  };
+  }
 
   let score = 0;
   const correctSuspect = accusedSuspectId === scenario.killerId;
@@ -114,7 +110,6 @@ export function submitCase(
     providedMotive.toLowerCase().includes(scenario.motive.toLowerCase()) ||
     scenario.motive.toLowerCase().includes(providedMotive.toLowerCase());
 
-  // Anchor-based forensic evaluation
   let anchorDiscovered = false;
   let anchorSupportsAccused = false;
 
@@ -129,16 +124,22 @@ export function submitCase(
       anchorDiscovered && accusedSuspectId === anchor.supportsSuspectId;
   }
 
-  // Check if planted evidence was used
   const plantedEvidenceUsed = referencedEvidence.some((e) =>
     scenario.plantedEvidence.includes(e)
   );
+
+  const now = Date.now();
+  const elapsed = now - state.startedAt;
+  const timerMs = state.timerMinutes * 60 * 1000;
+  const timeExpired = elapsed > timerMs;
 
   if (correctSuspect) score += 40;
   if (motiveMatch) score += 20;
   if (anchorSupportsAccused) score += 25;
   if (anchorDiscovered && !anchorSupportsAccused) score -= 25;
   if (plantedEvidenceUsed) score -= 20;
+  if (timeExpired) score -= 15;
+  if (!timeExpired) score += 10;
 
   let verdict: string;
   if (score >= 80) {
@@ -160,6 +161,7 @@ export function submitCase(
         anchorDiscovered,
         anchorSupportsAccused,
         plantedEvidenceUsed,
+        timeExpired,
       },
     },
   };
