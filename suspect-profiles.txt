@@ -1,0 +1,376 @@
+SUSPECT PROFILE CARDS — MURDER MYSTERY BOARD GAME
+===================================================
+PURPOSE: These 50 character profile cards are fully interchangeable across any case scenario.
+The same card can represent a murderer, victim, witness, suspect, alibi provider, accomplice,
+or bystander depending on the case being played. The "Relationship" tag is a default starting
+flavor; the web app dynamically reassigns roles per scenario. Profiles are intentionally
+written with ambiguity — details can point to guilt or innocence depending on context.
+===================================================
+
+
+--- FAMILY-TYPE CONNECTIONS ---
+
+#1
+Name: Marcus Delaney
+Age: 47
+Occupation: Insurance Adjuster
+Relationship: Neighbor
+Summary: Quiet and observant, Marcus moved into the neighborhood three years ago after a divorce. He keeps odd hours and has been seen taking photos of nearby properties. Claims it's for work, but some neighbors find it unsettling. Has no criminal record but was named in a civil suit that was later dropped.
+
+#2
+Name: Diane Mercer
+Age: 52
+Occupation: Real Estate Agent
+Relationship: Spouse
+Summary: Polished and well-connected, Diane has built her career on knowing everyone's business. She maintains a careful public image but close friends say she has a sharp temper behind closed doors. Recently updated her will and took out a new life insurance policy, which she describes as routine estate planning.
+
+#3
+Name: Colin Ashworth
+Age: 29
+Occupation: Graduate Student (History)
+Relationship: Sibling
+Summary: Intellectual and brooding, Colin has always felt overlooked in favor of more successful family members. He keeps a personal journal that he guards closely and recently returned from a six-month research trip abroad. His whereabouts during key windows of time are difficult to verify.
+
+#4
+Name: Ruth Nakamura
+Age: 68
+Occupation: Retired Schoolteacher
+Relationship: Parent
+Summary: Sharp-minded and fiercely protective of her family, Ruth has strong opinions about everyone in her children's lives. Neighbors describe her as warm but controlling. She made a significant bank withdrawal two weeks before the incident and told no one about it.
+
+#5
+Name: Tyler Okonkwo
+Age: 24
+Occupation: Warehouse Associate
+Relationship: Sibling
+Summary: Easygoing on the surface, Tyler has a history of financial trouble and has borrowed money from multiple family members without repaying them. He recently quit his second job without explanation and has been spending more time than usual around the family home. Tends to laugh off serious questions.
+
+#6
+Name: Sandra Whitfield
+Age: 44
+Occupation: Dental Hygienist
+Relationship: Ex-Partner
+Summary: Sandra ended a long relationship abruptly and has not fully moved on, according to mutual friends. She occasionally drives past her ex-partner's residence and has sent several unanswered messages in recent months. Describes her interest as concern, not obsession. Has no history of violence but has a restraining order on file from a previous relationship.
+
+#7
+Name: Eliot Farrow
+Age: 61
+Occupation: Retired Military Officer
+Relationship: Parent
+Summary: Disciplined and commanding, Eliot ran a tight household and expects the same from everyone around him. He has a strained relationship with at least one of his children and made a pointed comment about "consequences" at a recent family gathering. Owns several legally registered firearms.
+
+#8
+Name: Priya Subramanian
+Age: 38
+Occupation: Pediatric Nurse
+Relationship: Spouse
+Summary: Calm under pressure and accustomed to long shifts, Priya is well-liked by her coworkers but admits her marriage has been strained. She filled a prescription for a sedative two weeks before the incident and had a private meeting with a family lawyer that she hasn't mentioned to anyone. Close friends say she's been "planning something."
+
+#9
+Name: Gwen Calloway
+Age: 33
+Occupation: Florist
+Relationship: Cousin
+Summary: Warm and sociable, Gwen is the family peacemaker — or so she appears. She recently had a falling-out with a close family member over money and has been conspicuously absent from family events since. Her shop was broken into last month, but she declined to file a full report with police.
+
+#10
+Name: Nolan Breslin
+Age: 19
+Occupation: College Student (Undeclared)
+Relationship: Child (Adult)
+Summary: Quiet and withdrawn since dropping his engineering major, Nolan has been spending time with a new social circle that family members don't know well. He was recently spotted near the scene of an unrelated incident and gave an inconsistent account of his evening when asked. Struggles to maintain eye contact during interviews.
+
+#11
+Name: Margaret Tran
+Age: 56
+Occupation: Bookkeeper
+Relationship: In-Law
+Summary: Meticulous and detail-oriented, Margaret notices discrepancies others miss. She recently discovered what she believes is financial irregularity in a family account but hasn't yet decided who to tell. Neighbors describe her as "the type who keeps records of everything." Has a folder of printed emails that she carries in her purse.
+
+#12
+Name: Jerome Hutchins
+Age: 41
+Occupation: High School Football Coach
+Relationship: Ex-Partner
+Summary: Outwardly gregarious and well-liked in the community, Jerome has a complicated romantic history that includes at least one contested restraining order. He volunteers as a youth mentor and is quick to offer his own version of events before being asked. Was seen having a heated argument with an unknown individual near his vehicle the night before the incident.
+
+
+--- PROFESSIONAL / WORK CONNECTIONS ---
+
+#13
+Name: Lena Kowalski
+Age: 45
+Occupation: Office Manager
+Relationship: Coworker
+Summary: Efficient and territorial about her role at the office, Lena controls access to most of the company's administrative files. She recently learned she was passed over for a promotion and was overheard saying she "knew things that could blow everything open." Has taken several unplanned personal days in the past month.
+
+#14
+Name: Desmond Achebe
+Age: 50
+Occupation: Senior Accountant
+Relationship: Business Associate
+Summary: Reserved and precise, Desmond has worked with the same firm for twenty years and prides himself on discretion. He recently flagged an internal financial discrepancy and was told to stay quiet about it. He has complied so far but has kept his own documentation, which he hasn't destroyed. Colleagues say he seems unusually anxious lately.
+
+#15
+Name: Cassandra Voss
+Age: 36
+Occupation: Marketing Director
+Relationship: Coworker
+Summary: Ambitious and strategic, Cassandra is known for building alliances and knowing when to call in favors. She and a senior colleague recently had a public disagreement that HR got involved in. Witnesses say she was the last person seen speaking to the individual in question before they were found. Claims the conversation was routine.
+
+#16
+Name: Ray Espinoza
+Age: 53
+Occupation: Construction Foreman
+Relationship: Boss / Employer
+Summary: Blunt and used to being in charge, Ray doesn't like being questioned and has a reputation for cutting corners on job sites. A current worker filed an anonymous complaint against him last month. Ray says the complaint was "personal" and that he knows exactly who filed it. Has access to every key and security code at the worksite.
+
+#17
+Name: Felicity Drummond
+Age: 29
+Occupation: Junior Paralegal
+Relationship: Coworker
+Summary: Eager to prove herself, Felicity has been quietly building a file on workplace misconduct that she witnessed months ago. She confided in one colleague who she now suspects may have told the wrong person. Has since changed her passwords, her route home from work, and stopped taking lunch in the break room.
+
+#18
+Name: Arthur Kimani
+Age: 60
+Occupation: CEO (Semi-retired)
+Relationship: Business Associate
+Summary: Charming and hard to read, Arthur has negotiated his way out of difficult situations for decades. He recently tried to buy out a business partner under unusual terms and was refused. Known to have a private security detail on call, though he downplays the reason. His calendar for the day of the incident has been "accidentally deleted."
+
+#19
+Name: Monica Graves
+Age: 34
+Occupation: Pharmacist
+Relationship: Coworker
+Summary: Methodical and quiet, Monica has access to a wide range of controlled substances and keeps immaculate dispensing records — except for a three-day gap she attributes to a software glitch. She recently asked a colleague a series of oddly specific questions about overdose thresholds. Her coworkers describe her as "private but not suspicious — until now."
+
+#20
+Name: Steven Park
+Age: 42
+Occupation: IT Security Analyst
+Relationship: Employee
+Summary: Smart and socially awkward, Steven has administrative access to most of the company's communications infrastructure. He recently discovered something in a server log that he hasn't reported, claiming he "needs more time to be sure." He made a copy of the log and stored it somewhere off-site. He's been very careful about who he talks to.
+
+#21
+Name: Harriet Osei
+Age: 48
+Occupation: Human Resources Director
+Relationship: Boss / Employer
+Summary: Unflappable and politically savvy, Harriet has managed more sensitive personnel situations than most people know about. She recently brokered a private settlement between two employees and made sure the files were sealed. Has a reputation for knowing exactly what skeletons are in which closets and for using that knowledge carefully.
+
+#22
+Name: Danny Ruiz
+Age: 27
+Occupation: Delivery Driver / Independent Contractor
+Relationship: Coworker (Temp)
+Summary: Friendly and easy to underestimate, Danny was hired on a short-term contract and spent considerable time in areas of the building most temporary staff never access. He left the position suddenly without explanation and forgot to return his security badge. When reached by investigators, he seemed nervous and gave two different versions of his last day.
+
+
+--- COMMUNITY / SOCIAL CONNECTIONS ---
+
+#23
+Name: Vivian St. Claire
+Age: 63
+Occupation: Retired Judge
+Relationship: Neighbor
+Summary: Imposing and observant, Vivian has lived in the neighborhood for thirty years and misses nothing. She keeps a handwritten log of unusual activity on her street, which she has offered to investigators — though she has redacted several entries. She has strong opinions about a particular individual on the street that she says are "not for public record."
+
+#24
+Name: Tobias Wegner
+Age: 39
+Occupation: Personal Trainer
+Relationship: Friend
+Summary: Sociable and physically imposing, Tobias has a wide circle of acquaintances and knows how to read people. He was close to another individual in the case until a falling-out roughly six months ago over something neither will fully explain. He was at the gym the evening of the incident and has three clients who can partially confirm this — but not for the full window.
+
+#25
+Name: Adaeze Nwosu
+Age: 31
+Occupation: Social Worker
+Relationship: Family Friend
+Summary: Empathetic and well-connected to community resources, Adaeze had ongoing contact with the family in a professional capacity before becoming personally involved. She recently escalated a concern about a household member to her supervisor and was told the case didn't meet the threshold for intervention. She disagreed strongly and documented her objection.
+
+#26
+Name: Gary Thornton
+Age: 55
+Occupation: Landscaper
+Relationship: Neighbor
+Summary: Gruff but not unfriendly, Gary has lived next door for twelve years and seen more than he lets on. He has a habit of lingering near property lines and once had a formal dispute with a neighbor over access. His truck was spotted in an unusual location two nights before the incident. When asked, he said he was "just driving around."
+
+#27
+Name: Serena Holt
+Age: 22
+Occupation: Barista / Part-time Student
+Relationship: Acquaintance
+Summary: Bright and perceptive, Serena served a regular customer on multiple occasions and picked up on subtle changes in behavior and mood over recent weeks. She confided in a coworker about something a customer said that she found alarming but didn't follow up on. Has since tried to piece together the timeline and is unsure whether to come forward.
+
+#28
+Name: Father Thomas Gallagher
+Age: 66
+Occupation: Catholic Priest
+Relationship: Clergy / Community Figure
+Summary: Calm and well-trusted in the local community, Father Thomas heard something in confidence that may be relevant to the case. He is struggling with the tension between confidentiality and moral duty. His calendar shows a private meeting with an unidentified individual the afternoon before the incident. He declines to confirm or deny the meeting.
+
+#29
+Name: Rosario Delgado
+Age: 44
+Occupation: Elementary School Teacher
+Relationship: Teacher / Coach
+Summary: Devoted to her students and respected in the community, Rosario has a wide network of relationships with local families. She noticed something concerning about a student in the weeks before the incident and tried to flag it through proper channels. The concern was dismissed. She's been cooperative with investigators but visibly distressed.
+
+#30
+Name: Brian Cho
+Age: 37
+Occupation: Youth Soccer Coach / Gym Teacher
+Relationship: Coach
+Summary: High-energy and well-liked by students, Brian has access to after-school facilities and knows the routines of dozens of local families. He recently had an argument with a parent at a tournament that several people witnessed. The argument was about something other than soccer, according to bystanders, but neither party will say what.
+
+#31
+Name: Pauline Rhodes
+Age: 71
+Occupation: Retired Librarian
+Relationship: Family Friend
+Summary: Kind and observant, Pauline has known the family for decades and is trusted by everyone — perhaps too trusted. She recently found something in a donated box of books that she hasn't told anyone about. She made a cryptic comment to a neighbor about "things coming to light" and has since become noticeably quiet.
+
+#32
+Name: Kwame Asante
+Age: 46
+Occupation: Jazz Musician / Music Teacher
+Relationship: Friend
+Summary: Charismatic and unconventional, Kwame moves between social circles with ease and rarely commits to a fixed schedule. He was one of the last people to speak with a key individual connected to the case and says the conversation was "nothing worth mentioning." Friends say Kwame is carrying something but won't say what. He has an unexplained bruise on his forearm.
+
+
+--- AUTHORITY / SERVICE FIGURES ---
+
+#33
+Name: Dr. Ingrid Paulos
+Age: 49
+Occupation: General Practitioner
+Relationship: Doctor / Medical Professional
+Summary: Methodical and professionally guarded, Dr. Paulos served as long-time physician to an individual connected to the case and is aware of medical history that could be relevant. She is bound by confidentiality but has indicated to investigators that "some things shouldn't stay private forever." Her patient files show a series of visits that increased significantly in frequency over the past year.
+
+#34
+Name: Victor Lennox
+Age: 54
+Occupation: Criminal Defense Attorney
+Relationship: Lawyer / Legal Counsel
+Summary: Composed and strategically cautious, Victor has represented clients in sensitive cases for over two decades. He recently had an off-the-record conversation with an individual connected to this case that he refuses to characterize. Has not invoked privilege but has been very selective about what he volunteers. His billing records show a significant cash payment with no client name attached.
+
+#35
+Name: Officer Dale Marsh
+Age: 36
+Occupation: Police Officer (Patrol)
+Relationship: Authority Figure / Law Enforcement
+Summary: Competent and by-the-book on paper, Dale has a reputation among colleagues for being overly cautious about making arrests. He was first on the scene and made several judgment calls in those early minutes that are now being questioned. He submitted his report three hours after standard procedure requires. Claims he was waiting for guidance from a supervisor who has since retired.
+
+#36
+Name: Claire Sutton
+Age: 41
+Occupation: Licensed Therapist (LCSW)
+Relationship: Therapist / Counselor
+Summary: Measured and professionally composed, Claire had a therapeutic relationship with at least one person connected to this case. She has shared limited information with investigators citing confidentiality but has hinted that she has concerns that fall outside the scope of privilege. Her office calendar shows a session cancellation the morning of the incident by an unknown client.
+
+#37
+Name: Hector Malone
+Age: 58
+Occupation: Financial Advisor
+Relationship: Financial Advisor / Trustee
+Summary: Well-dressed and meticulous, Hector managed significant assets for a client connected to the case. He recently restructured an estate plan under unusual time pressure and processed a large transfer that he describes as "routine portfolio rebalancing." Several of the accounts involved have since been frozen. He has hired his own attorney.
+
+#38
+Name: Tamara Singh
+Age: 32
+Occupation: Paramedic / EMT
+Relationship: First Responder
+Summary: Steady under pressure and trained to notice things others miss, Tamara was on the scene early and noted details in her personal log that didn't make it into the official report. She has since tried twice to amend the report and been told the case file is closed. She contacted a journalist before contacting investigators, which has complicated her credibility.
+
+
+--- FRINGE / STRANGER CONNECTIONS ---
+
+#39
+Name: Gil Hartley
+Age: 43
+Occupation: Bartender
+Relationship: Stranger / Service Worker
+Summary: Observant and discreet by profession, Gil served a regular patron on multiple occasions and noticed behavioral changes over recent visits. He overheard a tense phone conversation and remembers it clearly but has been reluctant to repeat it out loud. Works the late shift and says he's seen things at closing time that most people would find hard to believe.
+
+#40
+Name: Carmen Flores
+Age: 35
+Occupation: Hotel Front Desk Clerk
+Relationship: Stranger / Service Worker
+Summary: Efficient and trained to be unobtrusive, Carmen checked in a guest connected to this case and noticed something unusual about the booking. The reservation was made under a slightly different name than the ID presented. She mentioned it to a coworker at the time but not to management. She has a good memory for faces and details.
+
+#41
+Name: Pete Hargrove
+Age: 50
+Occupation: Handyman / General Contractor
+Relationship: Service Worker
+Summary: Reliable and largely invisible to most households he works in, Pete had access to the property in the weeks before the incident to complete several repairs. He noticed something unusual during one visit — a locked room that hadn't been locked before — and says he mentioned it to the homeowner. The homeowner did not acknowledge the conversation.
+
+#42
+Name: Yuki Tanaka
+Age: 26
+Occupation: Ride-share Driver
+Relationship: Stranger / Service Worker
+Summary: Attentive and cautious, Yuki drove a passenger connected to this case on the night in question and has a detailed recollection of the route, the conversation, and the drop-off location. The stated destination was different from where the passenger ultimately went. Yuki saved the trip log and has been waiting to be contacted by investigators.
+
+#43
+Name: Leonard Cross
+Age: 62
+Occupation: Night Security Guard
+Relationship: Stranger / Authority Adjacent
+Summary: Gruff and tired of being overlooked, Leonard works the overnight shift at a facility connected to the case. He signed in several visitors after hours that aren't listed in the official log, a discrepancy he says was common practice. Has a drinking problem he doesn't advertise and was napping during a portion of his shift. His badge reader records tell a different story than his verbal account.
+
+#44
+Name: Mia Fontaine
+Age: 30
+Occupation: Postal Worker
+Relationship: Stranger / Service Worker
+Summary: Cheerful and methodical, Mia has a sharp memory for the mail she delivers and the households on her route. She noticed a change in package deliveries and mail patterns for a specific address in the weeks before the incident. One package she delivered was signed for by someone whose name didn't match any known resident. She kept the delivery log.
+
+
+--- WILD CARDS / MYSTERIOUS BACKGROUNDS ---
+
+#45
+Name: Rafe Dunning
+Age: 38
+Occupation: Unemployed (Previously Unspecified)
+Relationship: Drifter / New in Town
+Summary: Rafe arrived in town approximately eight weeks before the incident and has given inconsistent answers about where he came from and why. He's been seen at multiple locations connected to the case at different times, which he attributes to coincidence. Has no fixed address but isn't homeless in appearance. No criminal record under his current name.
+
+#46
+Name: Celeste Vane
+Age: 27
+Occupation: Freelance Photographer
+Relationship: Wild Card / Unknown Connection
+Summary: Artistic and hard to read, Celeste has been photographing the neighborhood for what she says is a personal project. Several of her photos — recovered from a social media account that has since been deleted — include individuals connected to the case, taken before any known connection was established. She claims she didn't know who they were.
+
+#47
+Name: Oscar Brecht
+Age: 55
+Occupation: Unknown / Claims to Be a Consultant
+Relationship: Wild Card / Mysterious Background
+Summary: Oscar is difficult to verify — his business cards list a firm that has no public presence. He was seen meeting privately with two people connected to the case at different times and claims to have known neither of them well. Background checks return minimal results, which investigators say is unusual. He is polite, cooperative, and explains nothing.
+
+#48
+Name: Nadia Volkov
+Age: 44
+Occupation: Former Intelligence Analyst (Retired Early)
+Relationship: Wild Card / Stranger with Expertise
+Summary: Precise and unnervingly calm under questioning, Nadia relocated to the area under circumstances she describes as "personal." Her former employer cannot be reached for comment. She has a clear understanding of surveillance, evidence handling, and investigative procedure that she attributes to "professional habits." She volunteered to assist investigators and was politely declined.
+
+#49
+Name: Ellis Sorrow
+Age: 33
+Occupation: Independent Journalist / Blogger
+Relationship: Wild Card / Fringe Connection
+Summary: Convinced he is on the verge of a major story, Ellis has been investigating the people connected to this case for reasons unrelated to the current incident. He has notes, photographs, and audio recordings he obtained through legal but ethically questionable means. He is willing to trade information but wants something in return. His motives are entirely his own.
+
+#50
+Name: Juniper Faye
+Age: 21
+Occupation: Street Artist / Occasional Temp Worker
+Relationship: Wild Card / Unknown Connection
+Summary: Quiet and perceptive, Juniper was present at the margins of multiple gatherings connected to this case and was rarely noticed. She has a sketchbook full of detailed observational drawings of people and places from the weeks before the incident. She didn't come forward initially because she "didn't think anyone would take her seriously." What she saw may change everything.
