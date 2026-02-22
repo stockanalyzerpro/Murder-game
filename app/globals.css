@@ -1,3 +1,61 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* ── Print Styles ─────────────────────────────────────────── */
+
+@media print {
+  /* Global resets */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+    font-size: 10pt;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Hide anything marked screen-only */
+  .screen-only {
+    display: none !important;
+  }
+
+  /* Ensure borders and grid lines print */
+  table,
+  th,
+  td {
+    border-color: #000 !important;
+  }
+
+  /* Page margins */
+  @page {
+    margin: 0.5in;
+  }
+
+  /* Landscape for evidence-log and timeline-board */
+  .print-landscape {
+    page: landscape-page;
+  }
+
+  @page landscape-page {
+    size: landscape;
+    margin: 0.5in;
+  }
+
+  /* Section page-break helpers */
+  .page-break-before {
+    page-break-before: always;
+  }
+
+  .page-break-after {
+    page-break-after: always;
+  }
+
+  .avoid-break {
+    page-break-inside: avoid;
+  }
+}
