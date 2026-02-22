@@ -107,6 +107,12 @@ export const SCENARIOS: Scenario[] = [
       footage_enhancement: 'Enhanced footage shows a figure matching Margaret Voss entering the property at 11:32 PM.',
     },
     plantedEvidence: ['financial_docs'],
+    forensicAnchor: {
+      testId: 'dna_test',
+      evidenceId: 'weapon',
+      supportsSuspectId: 'spouse',
+      strength: 'strong',
+    },
     interviewVariations: {
       spouse: 'Margaret claims she was at a charity dinner until midnight. Alibi partially corroborated.',
       brother: 'David states he was out of state. Flight records confirm departure two days prior.',
@@ -127,6 +133,12 @@ export const SCENARIOS: Scenario[] = [
       footage_enhancement: 'Footage enhancement incomplete — file corruption prevents clear identification.',
     },
     plantedEvidence: ['financial_docs'],
+    forensicAnchor: {
+      testId: 'fiber_analysis',
+      evidenceId: 'fiber',
+      supportsSuspectId: 'brother',
+      strength: 'strong',
+    },
     interviewVariations: {
       spouse: 'Margaret says David called the house repeatedly in the week before the death. She felt threatened.',
       brother: 'David denies returning to town. Phone records show a local cell tower ping contradicting this claim.',
@@ -147,6 +159,12 @@ export const SCENARIOS: Scenario[] = [
       footage_enhancement: 'Enhanced footage reveals a vehicle matching Leonard Holt\'s registered BMW parked outside the building at 10:58 PM.',
     },
     plantedEvidence: ['fiber'],
+    forensicAnchor: {
+      testId: 'financial_audit',
+      evidenceId: 'financial_docs',
+      supportsSuspectId: 'business_partner',
+      strength: 'strong',
+    },
     interviewVariations: {
       spouse: 'Margaret notes that Leonard was behaving erratically in recent months and avoided direct conversations with her husband.',
       brother: 'David says he had no recent contact with Leonard and considers him untrustworthy.',

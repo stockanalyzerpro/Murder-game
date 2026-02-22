@@ -100,7 +100,8 @@ export function submitCase(
         details: {
           correctSuspect: false,
           motiveMatch: false,
-          forensicAnchors: 0,
+          anchorDiscovered: false,
+          anchorSupportsAccused: false,
           plantedEvidenceUsed: false,
         },
       },
@@ -113,12 +114,20 @@ export function submitCase(
     providedMotive.toLowerCase().includes(scenario.motive.toLowerCase()) ||
     scenario.motive.toLowerCase().includes(providedMotive.toLowerCase());
 
-  // Count forensic anchors: completed tests whose evidence is referenced
-  const forensicAnchorEvidence = state.completedTests.map((c) => c.evidenceId);
-  const referencedForensicAnchor = referencedEvidence.filter((e) =>
-    forensicAnchorEvidence.includes(e)
-  );
-  const forensicAnchorCount = referencedForensicAnchor.length;
+  // Anchor-based forensic evaluation
+  let anchorDiscovered = false;
+  let anchorSupportsAccused = false;
+
+  if (scenario.forensicAnchor) {
+    const anchor = scenario.forensicAnchor;
+    const testCompleted = state.completedTests.some(
+      (c) => c.testId === anchor.testId
+    );
+    const evidenceReferenced = referencedEvidence.includes(anchor.evidenceId);
+    anchorDiscovered = testCompleted && evidenceReferenced;
+    anchorSupportsAccused =
+      anchorDiscovered && accusedSuspectId === anchor.supportsSuspectId;
+  }
 
   // Check if planted evidence was used
   const plantedEvidenceUsed = referencedEvidence.some((e) =>
@@ -127,7 +136,8 @@ export function submitCase(
 
   if (correctSuspect) score += 40;
   if (motiveMatch) score += 20;
-  if (forensicAnchorCount >= 2) score += 20;
+  if (anchorSupportsAccused) score += 25;
+  if (anchorDiscovered && !anchorSupportsAccused) score -= 25;
   if (plantedEvidenceUsed) score -= 20;
 
   let verdict: string;
@@ -147,7 +157,8 @@ export function submitCase(
       details: {
         correctSuspect,
         motiveMatch,
-        forensicAnchors: forensicAnchorCount,
+        anchorDiscovered,
+        anchorSupportsAccused,
         plantedEvidenceUsed,
       },
     },
