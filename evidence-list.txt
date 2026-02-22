@@ -1,0 +1,436 @@
+MURDER MYSTERY GAME — MASTER EVIDENCE CARD LIST
+=================================================
+Purpose: Master reference list for the web app engine to assemble unique crime scenarios.
+Each card is generic enough to be reused across many different crime types (murder,
+poisoning, arson, kidnapping, staged suicide, etc.). Cards can serve as genuine clues
+OR red herrings. Players may submit cards for forensic testing (DNA, fingerprints,
+digital forensics, chemical analysis, etc.) via the web app.
+
+Total cards: 342
+Last updated: 2026-02-22
+=================================================
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+CATEGORY 1: WEAPONS & POTENTIAL WEAPONS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+1.  Kitchen knife
+2.  Hunting knife
+3.  Machete
+4.  Hammer
+5.  Revolver
+6.  Hunting rifle
+7.  Frying pan
+8.  Rope
+9.  Bloody rock
+10. Vase
+11. Throw pillow
+12. Duct tape
+13. Tarp
+14. Switchblade
+15. Box cutter
+16. Ice pick
+17. Letter opener
+18. Serrated bread knife
+19. Steak knife set
+20. Pocket knife
+21. Combat knife
+22. Bayonet
+23. Axe
+24. Hatchet
+25. Fire poker
+26. Crowbar
+27. Tire iron
+28. Wrench
+29. Baseball bat
+30. Cricket bat
+31. Golf club
+32. Pool cue
+33. Shovel
+34. Pitchfork
+35. Bolt cutters
+36. Crossbow
+37. Compound bow
+38. Shotgun
+39. Semi-automatic pistol
+40. Silencer attachment
+41. Brass knuckles
+42. Syringe
+43. Garrote wire
+44. Scalpel
+45. Speargun
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+CATEGORY 2: DOCUMENTS & WRITTEN EVIDENCE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+1.  Foreclosure letter
+2.  Life insurance bill
+3.  Suicide note
+4.  Ransom note
+5.  Handwritten letter
+6.  Anonymous threat letter
+7.  Restraining order
+8.  Divorce filing
+9.  Last will & testament
+10. Unsigned contract
+11. Altered contract
+12. Eviction notice
+13. Bankruptcy filing
+14. Prescription pad
+15. Doctor's note
+16. Lab results report
+17. Autopsy report copy
+18. Police report copy
+19. Newspaper clipping
+20. Torn diary page
+21. Appointment reminder
+22. Birthday card
+23. Blackmail letter
+24. Confession letter
+25. Forged signature page
+26. Notarized document
+27. Real estate deed
+28. Property transfer form
+29. Adoption papers
+30. Paternity test results
+31. Marriage certificate
+32. Death certificate copy
+33. Prison release papers
+34. Parole conditions form
+35. Travel visa
+36. Passport copy
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+CATEGORY 3: DIGITAL & ELECTRONIC EVIDENCE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+1.  Cell phone
+2.  USB drive
+3.  Security DVR
+4.  Laptop computer
+5.  Desktop hard drive
+6.  Tablet device
+7.  Smartwatch
+8.  Wireless earbuds
+9.  Smart home hub
+10. Doorbell camera
+11. Hidden nanny cam
+12. Burner phone
+13. SIM card
+14. Encrypted flash drive
+15. External hard drive
+16. Memory card (SD)
+17. Digital camera
+18. Trail camera
+19. Dash cam footage
+20. GPS tracker device
+21. Fitness tracker
+22. Voice recorder
+23. Answering machine tape
+24. Broken laptop screen
+25. Wiped hard drive
+26. Surveillance server log
+27. Smart TV remote
+28. Wireless router
+29. Printed email chain
+30. Printed chat log
+31. Social media screenshot
+32. Browser history printout
+33. Deleted file recovery
+34. Encrypted email printout
+35. Metadata report
+36. Cell tower ping record
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+CATEGORY 4: FORENSIC SAMPLES & TRACES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+1.  Partial fingerprint
+2.  Shoe print
+3.  Blood spatter pattern
+4.  Bloodstained cloth
+5.  Hair sample
+6.  Skin cell swab
+7.  Nail clipping
+8.  Saliva swab
+9.  Bite mark cast
+10. Footwear impression cast
+11. Tire track cast
+12. Fiber sample
+13. Soil sample
+14. Pollen sample
+15. Glass fragment
+16. Paint chip
+17. Gunshot residue swab
+18. Spent shell casing
+19. Bullet fragment
+20. Firearm cleaning kit
+21. Canine scent sample
+22. Latent fingerprint card
+23. Touch DNA swab
+24. Luminol test result
+25. Tox screen report
+26. Soot deposit sample
+27. Burn pattern photo
+28. Bite mark photo
+29. Wound cast impression
+30. Unknown white powder
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+CATEGORY 5: CLOTHING & PERSONAL ITEMS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+1.  Sneaker
+2.  Muddy boot
+3.  Latex glove
+4.  Leather glove
+5.  Ski mask
+6.  Baseball cap
+7.  Hoodie
+8.  Blood-stained shirt
+9.  Torn jacket
+10. Rain jacket
+11. Coveralls
+12. Lab coat
+13. Surgical scrubs
+14. Dress shoe (single)
+15. High heel (single)
+16. Sock with mud
+17. Belt with monogram
+18. Wristwatch
+19. Ring (no stone)
+20. Signet ring
+21. Locket necklace
+22. Broken bracelet
+23. Sunglasses
+24. Prescription glasses
+25. Hearing aid
+26. Wallet (empty)
+27. Coin purse
+28. Keychain
+29. Lanyard with ID badge
+30. Gym bag
+31. Backpack
+32. Briefcase
+33. Duffel bag
+34. Torn coat button
+35. Monogrammed handkerchief
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+CATEGORY 6: HOUSEHOLD & ENVIRONMENTAL OBJECTS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+1.  Gas can
+2.  Broken window latch
+3.  Candle stub
+4.  Matchbook
+5.  Lighter
+6.  Ashtray with cigarette
+7.  Cigarette butt
+8.  Cigar band
+9.  Empty wine glass
+10. Wine bottle (empty)
+11. Whiskey glass
+12. Cracked coffee mug
+13. Food container (sealed)
+14. Leftover takeout box
+15. Trash bag (knotted)
+16. Flower vase (broken)
+17. Picture frame (shattered)
+18. Trophy (blood trace)
+19. Statuette
+20. Key ring (multiple keys)
+21. Padlock (open)
+22. Combination lock
+23. Safe deposit key
+24. Potted plant (overturned)
+25. Soil on floor
+26. Muddy floor mat
+27. Broken chair leg
+28. Overturned bookcase
+29. Alarm clock (stopped)
+30. Stove (left on)
+31. Dryer lint trap
+32. Attic hatch latch
+33. Hidden wall panel
+34. False-bottom drawer
+35. Loose floorboard
+36. Nails & screws bag
+37. Power drill
+38. Hacksaw
+39. Extension cord
+40. Zip ties
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+CATEGORY 7: CHEMICALS & SUBSTANCES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+1.  Acetone
+2.  Bleach
+3.  Rat poison packet
+4.  Antifreeze jug
+5.  Arsenic powder
+6.  Cyanide capsule
+7.  Sleeping pill bottle
+8.  Prescription opioids
+9.  Unmarked pill bottle
+10. Morphine vial
+11. Insulin pen
+12. Unknown liquid vial
+13. Drain cleaner
+14. Lighter fluid
+15. Paint thinner
+16. Turpentine can
+17. Rubbing alcohol bottle
+18. Formaldehyde bottle
+19. Carbon monoxide detector
+20. Hydrogen peroxide (high-conc.)
+21. Ammonia bottle
+22. Pesticide container
+23. Fertilizer bag (excess)
+24. Pool chlorine tablets
+25. Mercury thermometer (broken)
+26. Battery acid residue
+27. Industrial solvent drum
+28. Heroin balloon
+29. Cocaine residue baggie
+30. Unknown white powder vial
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+CATEGORY 8: VEHICLES & TRANSPORTATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+1.  Car key fob
+2.  Motorcycle key
+3.  Boat key
+4.  Parking ticket
+5.  Toll receipt
+6.  GPS device (car)
+7.  Dash cam (vehicle)
+8.  Rental car contract
+9.  Stolen vehicle report
+10. VIN number plate
+11. License plate (partial)
+12. Tire track photo
+13. Fuel receipt
+14. Car registration document
+15. Rideshare receipt
+16. Bus pass
+17. Train ticket (dated)
+18. Airline boarding pass
+19. Luggage claim tag
+20. Port authority record
+21. Ferry manifest copy
+22. Bicycle lock
+23. Bicycle helmet
+24. Scooter rental receipt
+25. Tow truck receipt
+26. Roadside breakdown report
+27. Accident report copy
+28. Speeding ticket
+29. Trunk mat (stained)
+30. Car air freshener (scent noted)
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+CATEGORY 9: FINANCIAL & TRANSACTIONAL EVIDENCE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+1.  Bank statement
+2.  Credit card receipt
+3.  Wire transfer record
+4.  Cash withdrawal slip
+5.  Offshore account ledger
+6.  Investment portfolio printout
+7.  Debt collection notice
+8.  Pawn shop receipt
+9.  Storage unit rental receipt
+10. Hotel room receipt
+11. Restaurant bill
+12. Casino chip
+13. Lottery ticket
+14. Cheque (unsigned)
+15. Bounced cheque notice
+16. Money order stub
+17. Insurance claim form
+18. Beneficiary change form
+19. Tax return (partial)
+20. Audit notice letter
+21. Gambling debt ledger
+22. Loan shark note
+23. Counterfeit bill
+24. Hidden cash bundle
+25. Cryptocurrency wallet printout
+26. Safe contents list
+27. Brokerage account statement
+28. Inheritance document
+29. Fraudulent invoice
+30. Dummy corporation filing
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+CATEGORY 10: CONTEXTUAL & SITUATIONAL EVIDENCE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+1.  Witness statement card
+2.  Alibi timeline slip
+3.  Overheard argument note
+4.  Anonymous tip letter
+5.  Neighborhood complaint log
+6.  Broken alibi report
+7.  Scene photo (wide-angle)
+8.  Scene photo (close-up)
+9.  Body position sketch
+10. Blood trail map
+11. Floor plan annotation
+12. Entry/exit log
+13. Security badge swipe log
+14. Visitor sign-in sheet
+15. Broken window record
+16. Forced-entry report
+17. Alarm deactivation log
+18. 911 call transcript
+19. First responder notes
+20. Medical examiner note
+21. Time of death estimate
+22. Weather report (dated)
+23. Power outage log
+24. Noise complaint record
+25. Surveillance gap record
+26. Missing persons flyer
+27. Private investigator report
+28. Restraining order violation
+29. Prior incident report
+30. Known associates list
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+QUICK REFERENCE — ORIGINAL 26 STARTER CARDS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+All 26 original cards are included above in their appropriate categories:
+
+  Kitchen knife       → Category 1, #1
+  Hammer              → Category 1, #4
+  Cell phone          → Category 3, #1
+  Foreclosure letter  → Category 2, #1
+  Life insurance bill → Category 2, #2
+  Vase                → Category 1, #10
+  Frying pan          → Category 1, #7
+  Revolver            → Category 1, #5
+  Throw pillow        → Category 1, #11
+  Suicide note        → Category 2, #3
+  Rope                → Category 1, #8
+  Partial fingerprint → Category 4, #1
+  Gas can             → Category 6, #1
+  Acetone             → Category 7, #1
+  Bleach              → Category 7, #2
+  Duct tape           → Category 1, #12
+  Bloody rock         → Category 1, #9
+  Hunting rifle       → Category 1, #6
+  Hunting knife       → Category 1, #2
+  Machete             → Category 1, #3
+  Tarp                → Category 1, #13
+  USB drive           → Category 3, #2
+  Ransom note         → Category 2, #4
+  Security DVR        → Category 3, #3
+  Sneaker             → Category 5, #1
+  Shoe print          → Category 4, #2
