@@ -1,9 +1,10 @@
 'use client';
 
-import { useParams } from 'next/navigation';
-import { useState } from 'react';
+import { useParams, useRouter } from 'next/navigation';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { SCENARIOS, SUSPECTS, EVIDENCE } from '@/lib/data';
+import type { GameState } from '@/types';
 
 const TIMER_PRESETS = [
   { label: 'Beginner', minutes: 120 },
@@ -21,14 +22,39 @@ function DifficultyStars({ rating }: { rating: number }) {
   );
 }
 
+function formatElapsed(ms: number): string {
+  if (ms <= 0) return '0:00';
+  const totalSeconds = Math.floor(ms / 1000);
+  const m = Math.floor(totalSeconds / 60);
+  const s = totalSeconds % 60;
+  return `${m}:${s.toString().padStart(2, '0')}`;
+}
+
 export default function CaseBriefingPage() {
   const params = useParams();
+  const router = useRouter();
   const scenarioId = params.id as string;
   const scenario = SCENARIOS.find((s) => s.id === scenarioId);
 
   const [timerMinutes, setTimerMinutes] = useState<number>(
     scenario?.defaultTimerMinutes ?? 90
   );
+  const [activeGame, setActiveGame] = useState<GameState | null>(null);
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    try {
+      const raw = localStorage.getItem(`gameState_${scenarioId}`);
+      if (raw) {
+        const parsed: GameState = JSON.parse(raw);
+        if (!parsed.submitted) {
+          setActiveGame(parsed);
+        }
+      }
+    } catch {
+      // ignore corrupt state
+    }
+  }, [scenarioId]);
 
   if (!scenario) {
     return (
@@ -44,13 +70,17 @@ export default function CaseBriefingPage() {
   const suspects = SUSPECTS.filter((s) => scenario.suspectIds.includes(s.id));
   const evidence = EVIDENCE.filter((e) => scenario.evidenceIds.includes(e.id));
 
+  function handleResume() {
+    router.push(`/case/${scenarioId}/play`);
+  }
+
   function handleStart() {
     if (typeof window !== 'undefined') {
       const statuses = JSON.parse(localStorage.getItem('caseStatuses') || '{}');
       statuses[scenarioId] = 'IN_PROGRESS';
       localStorage.setItem('caseStatuses', JSON.stringify(statuses));
 
-      const gameState = {
+      const gameState: GameState = {
         selectedScenarioId: scenarioId,
         timerMinutes,
         startedAt: Date.now(),
@@ -60,7 +90,7 @@ export default function CaseBriefingPage() {
       };
       localStorage.setItem(`gameState_${scenarioId}`, JSON.stringify(gameState));
     }
-    window.location.href = `/case/${scenarioId}/play`;
+    router.push(`/case/${scenarioId}/play`);
   }
 
   return (
@@ -183,15 +213,55 @@ export default function CaseBriefingPage() {
         </div>
       </section>
 
+      {/* Resume Investigation */}
+      {activeGame && (() => {
+        const elapsed = Date.now() - activeGame.startedAt;
+        const totalMs = activeGame.timerMinutes * 60 * 1000;
+        const remaining = Math.max(0, totalMs - elapsed);
+        return (
+          <section className="bg-yellow-900/30 border border-yellow-600 rounded-lg p-6 space-y-4">
+            <h2 className="text-yellow-400 font-semibold uppercase text-sm tracking-wider">
+              Active Investigation In Progress
+            </h2>
+            <p className="text-gray-300 text-sm">You have an active investigation in progress.</p>
+            <div className="text-xs text-gray-400 space-y-1">
+              <p>Time elapsed: <span className="text-white">{formatElapsed(elapsed)}</span></p>
+              <p>Time remaining: <span className={remaining === 0 ? 'text-red-400' : 'text-green-400'}>{formatElapsed(remaining)}</span></p>
+            </div>
+            <div className="flex flex-wrap gap-3 pt-2">
+              <button
+                onClick={handleResume}
+                className="bg-yellow-600 hover:bg-yellow-500 text-white text-sm font-bold tracking-widest uppercase px-8 py-3 rounded-lg transition"
+              >
+                Resume Investigation
+              </button>
+              <button
+                onClick={() => {
+                  if (typeof window !== 'undefined') {
+                    localStorage.removeItem(`gameState_${scenarioId}`);
+                  }
+                  handleStart();
+                }}
+                className="bg-gray-700 hover:bg-gray-600 text-gray-300 text-sm font-semibold px-6 py-3 rounded-lg transition"
+              >
+                Start New Investigation
+              </button>
+            </div>
+          </section>
+        );
+      })()}
+
       {/* Start Button */}
-      <div className="text-center py-4">
-        <button
-          onClick={handleStart}
-          className="bg-red-700 hover:bg-red-600 text-white text-lg font-bold tracking-widest uppercase px-12 py-4 rounded-lg transition shadow-lg shadow-red-900/30"
-        >
-          Start Investigation
-        </button>
-      </div>
+      {!activeGame && (
+        <div className="text-center py-4">
+          <button
+            onClick={handleStart}
+            className="bg-red-700 hover:bg-red-600 text-white text-lg font-bold tracking-widest uppercase px-12 py-4 rounded-lg transition shadow-lg shadow-red-900/30"
+          >
+            Start Investigation
+          </button>
+        </div>
+      )}
     </main>
   );
 }
