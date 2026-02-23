@@ -85,6 +85,12 @@ export default function Home() {
                 {scenario.tagline}
               </p>
 
+              {status === 'IN_PROGRESS' && (
+                <p className="text-yellow-400 text-xs mb-3 italic">
+                  Active — click to resume
+                </p>
+              )}
+
               <div className="space-y-2 text-xs text-gray-500">
                 <div className="flex justify-between items-center">
                   <span>Difficulty</span>
