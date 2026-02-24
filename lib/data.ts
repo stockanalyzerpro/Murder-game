@@ -116,7 +116,7 @@ export const SUSPECT_PROFILES: SuspectProfile[] = [
     occupation: 'Pediatric Nurse',
     education: 'BSN Nursing',
     psychologicalProfile: ['Calm under pressure but internally stressed', 'Secretive about personal life', 'History of enabling behavior in relationships', 'Knowledge of pharmaceuticals and dosages'],
-    background: 'Well-liked by coworkers and known for handling emergencies with composure. Admits her marriage has been strained for years. Has access to medical supplies and pharmaceutical knowledge through her work. Close friends say she has been \'\'planning something\'\' but won\'t elaborate. Maintains a private demeanor.',
+    background: 'Well-liked by coworkers and known for handling emergencies with composure. Admits her marriage has been strained for years. Has access to medical supplies and pharmaceutical knowledge through her work. Close friends say she has been \'planning something\' but won\'t elaborate. Maintains a private demeanor.',
   },
   {
     id: 'S-014',
