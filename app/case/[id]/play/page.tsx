@@ -3,7 +3,7 @@
 import { useParams } from 'next/navigation';
 import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
-import { SCENARIOS, SUSPECTS, EVIDENCE, LAB_TESTS } from '@/lib/data';
+import { SCENARIOS, SUSPECT_PROFILES, EVIDENCE_TYPES, LAB_TESTS } from '@/lib/data';
 import { initGame, requestLabTest, resolveReadyTests, submitCase } from '@/lib/engine';
 import type { GameState, SubmitResult } from '@/types';
 
@@ -25,11 +25,11 @@ export default function PlayPage() {
   const [gameState, setGameState] = useState<GameState | null>(null);
   const [activeTab, setActiveTab] = useState<Tab>('evidence');
   const [selectedTestId, setSelectedTestId] = useState<string>(LAB_TESTS[0].id);
-  const [selectedEvidenceId, setSelectedEvidenceId] = useState<string>(EVIDENCE[0].id);
+  const [selectedEvidenceId, setSelectedEvidenceId] = useState<string>(EVIDENCE_TYPES[0].id);
   const [error, setError] = useState<string | null>(null);
   const [timeRemaining, setTimeRemaining] = useState<number>(-1);
   const [showChargeModal, setShowChargeModal] = useState(false);
-  const [accusedId, setAccusedId] = useState<string>(SUSPECTS[0].id);
+  const [accusedId, setAccusedId] = useState<string>(SUSPECT_PROFILES[0].id);
   const [motive, setMotive] = useState('');
   const [referencedEvidence, setReferencedEvidence] = useState<string[]>([]);
   const [submitResult, setSubmitResult] = useState<SubmitResult | null>(null);
@@ -96,8 +96,14 @@ export default function PlayPage() {
     );
   }
 
-  const suspects = SUSPECTS.filter((s) => scenario.suspectIds.includes(s.id));
-  const evidence = EVIDENCE.filter((e) => scenario.evidenceIds.includes(e.id));
+  const suspects = scenario.suspectAssignments.map((assignment) => {
+    const profile = SUSPECT_PROFILES.find((p) => p.id === assignment.profileId);
+    return { ...assignment, profile };
+  });
+  const evidence = scenario.evidenceContent.map((ce) => {
+    const evType = EVIDENCE_TYPES.find((et) => et.id === ce.typeId);
+    return { ...ce, evType };
+  });
   const timerReady = timeRemaining >= 0;
   const isTimeCritical = timerReady && timeRemaining > 0 && timeRemaining < 10 * 60 * 1000;
   const isTimeExpired = timerReady && timeRemaining <= 0 && !gameState.submitted;
@@ -271,7 +277,7 @@ export default function PlayPage() {
             </h2>
             <ul className="space-y-2">
               {evidence.map((e) => {
-                const status = getEvidenceStatus(e.id);
+                const status = getEvidenceStatus(e.typeId);
                 const statusStyle =
                   status === 'Results Ready'
                     ? 'bg-green-700 text-green-100'
@@ -279,11 +285,12 @@ export default function PlayPage() {
                     ? 'bg-yellow-700 text-yellow-100'
                     : 'bg-gray-700 text-gray-300';
                 return (
-                  <li key={e.id} className="bg-gray-900 border border-gray-700 rounded p-3">
+                  <li key={e.typeId} className="bg-gray-900 border border-gray-700 rounded p-3">
                     <div className="flex justify-between items-start">
                       <div>
-                        <span className="font-semibold text-white text-sm">{e.title}</span>
-                        <p className="text-gray-400 text-xs mt-1">{e.description}</p>
+                        <span className="font-semibold text-white text-sm">{e.evType?.category ?? e.typeId}</span>
+                        <span className="text-gray-600 text-xs ml-2">({e.evType?.physicalCardNumber})</span>
+                        <p className="text-gray-400 text-xs mt-1">{e.content}</p>
                       </div>
                       <span className={`text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded whitespace-nowrap ${statusStyle}`}>
                         {status}
@@ -329,8 +336,8 @@ export default function PlayPage() {
                     className="bg-gray-800 border border-gray-600 rounded px-3 py-1.5 text-sm text-white"
                   >
                     {evidence.map((e) => (
-                      <option key={e.id} value={e.id}>
-                        {e.title}
+                      <option key={e.typeId} value={e.typeId}>
+                        {e.evType?.category ?? e.typeId}
                       </option>
                     ))}
                   </select>
@@ -367,7 +374,7 @@ export default function PlayPage() {
                   const now = Date.now();
                   return gameState.pendingTests.map((p) => {
                     const test = LAB_TESTS.find((t) => t.id === p.testId);
-                    const ev = EVIDENCE.find((e) => e.id === p.evidenceId);
+                    const ev = EVIDENCE_TYPES.find((e) => e.id === p.evidenceId);
                     const remaining = Math.max(0, p.readyAt - now);
                     return (
                       <div
@@ -376,7 +383,7 @@ export default function PlayPage() {
                       >
                         <div>
                           <span className="text-white">{test?.name}</span>
-                          <span className="text-gray-400"> — {ev?.title}</span>
+                          <span className="text-gray-400"> — {ev?.category}</span>
                         </div>
                         <span className="text-yellow-400 text-xs font-mono tabular-nums">
                           {remaining > 0 ? formatTime(remaining) : 'READY'}
@@ -390,39 +397,50 @@ export default function PlayPage() {
           </section>
         )}
 
-        {/* Suspect Interviews */}
+        {/* Suspect Assignments */}
         {activeTab === 'interviews' && (
           <section className="space-y-3">
             <h2 className="text-red-400 font-semibold uppercase text-sm tracking-wider">
-              Suspect Interviews
+              Suspect Assignments
             </h2>
             <ul className="space-y-2">
               {suspects.map((s) => {
-                const isExpanded = expandedSuspect === s.id;
-                const statement = scenario.interviewVariations[s.id];
+                const isExpanded = expandedSuspect === s.profileId;
                 return (
-                  <li key={s.id} className="bg-gray-900 border border-gray-700 rounded overflow-hidden">
+                  <li key={s.profileId} className="bg-gray-900 border border-gray-700 rounded overflow-hidden">
                     <button
-                      onClick={() => setExpandedSuspect(isExpanded ? null : s.id)}
+                      onClick={() => setExpandedSuspect(isExpanded ? null : s.profileId)}
                       className="w-full text-left p-3 flex justify-between items-center hover:bg-gray-800 transition"
                     >
                       <div>
-                        <span className="font-semibold text-white">{s.name}</span>
+                        <span className="font-semibold text-white">{s.profile?.name ?? s.profileId}</span>
                         <span className="text-xs text-gray-400 ml-2 bg-gray-800 px-2 py-0.5 rounded">
-                          {s.role}
+                          {s.roleInCase}
                         </span>
+                        <span className="text-xs text-gray-600 ml-1">({s.profileId})</span>
                       </div>
                       <span className="text-gray-500 text-xs">
-                        {isExpanded ? '▲ Hide' : '▼ View Statement'}
+                        {isExpanded ? '▲ Hide' : '▼ View Details'}
                       </span>
                     </button>
-                    {isExpanded && statement && (
-                      <div className="border-t border-gray-700 p-4 bg-gray-950">
+                    {isExpanded && (
+                      <div className="border-t border-gray-700 p-4 bg-gray-950 space-y-2">
                         <div className="text-xs text-gray-500 uppercase tracking-wider mb-2">
-                          Interview Transcript — {s.name}
+                          Case Assignment — {s.profile?.name ?? s.profileId}
                         </div>
-                        <p className="text-gray-300 text-sm leading-relaxed italic">
-                          &ldquo;{statement}&rdquo;
+                        <p className="text-gray-300 text-sm">
+                          <span className="text-gray-500">Relationship:</span> {s.relationshipToVictim}
+                        </p>
+                        {s.motive && (
+                          <p className="text-gray-300 text-sm">
+                            <span className="text-gray-500">Possible Motive:</span> {s.motive}
+                          </p>
+                        )}
+                        <p className="text-gray-300 text-sm">
+                          <span className="text-gray-500">Scene Access:</span>{' '}
+                          <span className={s.hasAccess ? 'text-yellow-400' : 'text-gray-500'}>
+                            {s.hasAccess ? 'Yes' : 'No'}
+                          </span>
                         </p>
                       </div>
                     )}
@@ -445,7 +463,7 @@ export default function PlayPage() {
               <ul className="space-y-2">
                 {gameState.completedTests.map((c) => {
                   const test = LAB_TESTS.find((t) => t.id === c.testId);
-                  const ev = EVIDENCE.find((e) => e.id === c.evidenceId);
+                  const ev = EVIDENCE_TYPES.find((e) => e.id === c.evidenceId);
                   const key = `${c.testId}-${c.evidenceId}`;
                   const isNew = !viewedResults.has(key);
                   return (
@@ -460,7 +478,7 @@ export default function PlayPage() {
                     >
                       <div className="flex justify-between items-start">
                         <div className="font-semibold text-green-300">
-                          {test?.name} — {ev?.title}
+                          {test?.name} — {ev?.category}
                         </div>
                         {isNew && (
                           <span className="bg-green-600 text-white text-[10px] font-bold px-1.5 py-0.5 rounded">
@@ -494,8 +512,8 @@ export default function PlayPage() {
                 className="bg-gray-800 border border-gray-600 rounded px-3 py-1.5 text-sm text-white"
               >
                 {suspects.map((s) => (
-                  <option key={s.id} value={s.id}>
-                    {s.name} ({s.role})
+                  <option key={s.profileId} value={s.profileId}>
+                    {s.profile?.name ?? s.profileId} ({s.roleInCase})
                   </option>
                 ))}
               </select>
@@ -517,15 +535,15 @@ export default function PlayPage() {
               <div className="flex flex-wrap gap-2">
                 {evidence.map((e) => (
                   <button
-                    key={e.id}
-                    onClick={() => handleToggleEvidence(e.id)}
+                    key={e.typeId}
+                    onClick={() => handleToggleEvidence(e.typeId)}
                     className={`px-3 py-1 rounded text-xs border transition ${
-                      referencedEvidence.includes(e.id)
+                      referencedEvidence.includes(e.typeId)
                         ? 'bg-yellow-700 border-yellow-500 text-white'
                         : 'bg-gray-800 border-gray-600 text-gray-400 hover:border-gray-400'
                     }`}
                   >
-                    {e.title}
+                    {e.evType?.category ?? e.typeId}
                   </button>
                 ))}
               </div>
