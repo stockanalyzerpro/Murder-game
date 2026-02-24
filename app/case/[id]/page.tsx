@@ -3,7 +3,7 @@
 import { useParams, useRouter } from 'next/navigation';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { SCENARIOS, SUSPECTS, EVIDENCE } from '@/lib/data';
+import { SCENARIOS, SUSPECT_PROFILES, EVIDENCE_TYPES, CRIME_SCENE_TILES, STORY_CARDS } from '@/lib/data';
 import type { GameState } from '@/types';
 
 const TIMER_PRESETS = [
@@ -67,8 +67,19 @@ export default function CaseBriefingPage() {
     );
   }
 
-  const suspects = SUSPECTS.filter((s) => scenario.suspectIds.includes(s.id));
-  const evidence = EVIDENCE.filter((e) => scenario.evidenceIds.includes(e.id));
+  const suspects = scenario.suspectAssignments.map((assignment) => {
+    const profile = SUSPECT_PROFILES.find((p) => p.id === assignment.profileId);
+    return { ...assignment, profile };
+  });
+  const evidence = scenario.evidenceContent.map((ce) => {
+    const evType = EVIDENCE_TYPES.find((et) => et.id === ce.typeId);
+    return { ...ce, evType };
+  });
+  const tiles = scenario.tileConfiguration.map((tc) => {
+    const tile = CRIME_SCENE_TILES.find((t) => t.id === tc.tileId);
+    return { ...tc, tile };
+  });
+  const storyCards = STORY_CARDS.filter((sc) => scenario.storyCardIds.includes(sc.id));
 
   function handleResume() {
     router.push(`/case/${scenarioId}/play`);
@@ -116,16 +127,36 @@ export default function CaseBriefingPage() {
         <p className="text-gray-400 italic">{scenario.tagline}</p>
       </header>
 
-      {/* Crime Scene Briefing */}
+      {/* Tile Configuration */}
       <section className="bg-gray-900 border border-gray-700 rounded-lg p-6 space-y-4">
         <h2 className="text-red-400 font-semibold uppercase text-sm tracking-wider">
-          Crime Scene Briefing
+          Crime Scene Setup
         </h2>
-        {scenario.briefing.split('\n\n').map((paragraph, i) => (
-          <p key={i} className="text-gray-300 text-sm leading-relaxed">
-            {paragraph}
-          </p>
-        ))}
+        <p className="text-gray-400 text-sm">Lay out the following crime scene tiles from the box:</p>
+        <ul className="space-y-2">
+          {tiles.map((tc) => (
+            <li key={tc.tileId} className="text-gray-300 text-sm flex items-center gap-2">
+              <span className="text-red-400">▸</span>
+              <span className="text-white font-semibold">{tc.tile?.name ?? tc.tileId}</span>
+              <span className="text-gray-500 text-xs">({tc.tile?.physicalTileNumber})</span>
+              {tc.hasVictim && <span className="text-red-400 text-xs ml-2 bg-red-900/40 px-2 py-0.5 rounded">VICTIM</span>}
+            </li>
+          ))}
+        </ul>
+        {storyCards.length > 0 && (
+          <div className="mt-4">
+            <h3 className="text-gray-300 text-sm font-semibold mb-2">Read these Story Cards:</h3>
+            <ul className="space-y-1">
+              {storyCards.map((sc) => (
+                <li key={sc.id} className="text-gray-400 text-sm flex items-center gap-2">
+                  <span className="text-yellow-400">▸</span>
+                  <span className="text-white">{sc.title}</span>
+                  <span className="text-gray-500 text-xs">({sc.physicalCardNumber})</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
       </section>
 
       {/* Setup Instructions */}
@@ -140,10 +171,11 @@ export default function CaseBriefingPage() {
           </h3>
           <ul className="space-y-1">
             {suspects.map((s) => (
-              <li key={s.id} className="text-gray-400 text-sm flex items-center gap-2">
+              <li key={s.profileId} className="text-gray-400 text-sm flex items-center gap-2">
                 <span className="text-red-400">▸</span>
-                <span className="text-white">{s.name}</span>
-                <span className="text-gray-500">— {s.role}</span>
+                <span className="text-white">{s.profile?.name ?? s.profileId}</span>
+                <span className="text-gray-500">— {s.roleInCase}</span>
+                <span className="text-gray-600 text-xs">({s.profileId})</span>
               </li>
             ))}
           </ul>
@@ -155,9 +187,10 @@ export default function CaseBriefingPage() {
           </h3>
           <ul className="space-y-1">
             {evidence.map((e) => (
-              <li key={e.id} className="text-gray-400 text-sm flex items-center gap-2">
+              <li key={e.typeId} className="text-gray-400 text-sm flex items-center gap-2">
                 <span className="text-red-400">▸</span>
-                <span className="text-white">{e.title}</span>
+                <span className="text-white">{e.evType?.category ?? e.typeId}</span>
+                <span className="text-gray-500 text-xs">({e.evType?.physicalCardNumber})</span>
               </li>
             ))}
           </ul>

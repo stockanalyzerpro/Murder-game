@@ -1,14 +1,63 @@
-export interface Suspect {
+export interface EvidenceType {
   id: string;
-  name: string;
-  role: string;
-  baseProfile: string;
+  category: string;
+  physicalCardNumber: string;
+  canBeTestedWith: string[];
 }
 
-export interface Evidence {
+export interface CaseEvidence {
+  typeId: string;
+  locationFound: string;
+  content: string;
+  imageUrl?: string;
+}
+
+export interface SuspectProfile {
+  id: string;
+  name: string;
+  age: number;
+  occupation: string;
+  education: string;
+  psychologicalProfile: string[];
+  background: string;
+  imageUrl?: string;
+}
+
+export interface CaseSuspect {
+  profileId: string;
+  roleInCase: string;
+  motive?: string;
+  relationshipToVictim: string;
+  hasAccess: boolean;
+}
+
+export interface StoryCard {
   id: string;
   title: string;
   description: string;
+  clueTypes: string[];
+  physicalCardNumber: string;
+}
+
+export interface CrimeSceneTile {
+  id: string;
+  name: string;
+  physicalTileNumber: string;
+  imageUrl?: string;
+  inspectableAreas: string[];
+}
+
+export interface InspectionResult {
+  areaId: string;
+  description: string;
+  evidenceFound: string[];
+}
+
+export interface TileConfiguration {
+  tileId: string;
+  position?: { x: number; y: number };
+  hasVictim?: boolean;
+  evidenceMarkers?: string[];
 }
 
 export interface LabTest {
@@ -32,14 +81,21 @@ export interface Scenario {
   difficulty: 1 | 2 | 3 | 4 | 5;
   defaultTimerMinutes: number;
   playerCount: string;
-  briefing: string;
-  suspectIds: string[];
-  evidenceIds: string[];
+
+  // Physical component setup
+  tileConfiguration: TileConfiguration[];
+  storyCardIds: string[];
+  suspectAssignments: CaseSuspect[];
+
+  // Interactive content
+  sceneInspections: Record<string, InspectionResult>;
+  evidenceContent: CaseEvidence[];
+
+  // Case resolution
   killerId: string;
   motive: string;
   forensicResults: Record<string, string>;
   plantedEvidence: string[];
-  interviewVariations: Record<string, string>;
   forensicAnchor?: ForensicAnchor;
 }
 
